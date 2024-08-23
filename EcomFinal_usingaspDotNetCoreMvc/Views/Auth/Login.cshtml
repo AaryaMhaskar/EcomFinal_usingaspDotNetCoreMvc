@@ -1,0 +1,34 @@
+﻿@model Login
+
+<form asp-action="Login">
+
+
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input asp-for="email" type="email" id="form3Example3cg" class="form-control form-control-lg" />
+        <label class="form-label" for="form3Example3cg">Your Email</label>
+        <span> @TempData["ErrorEmail"] </span>
+    </div>
+
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input asp-for="password" type="password" id="form3Example4cg" class="form-control form-control-lg" />
+        <label class="form-label" for="form3Example4cg">Password</label>
+        <span> @TempData["ErrorPassword"] </span>
+    </div>
+
+    <label class="form-check-label" for="form2Example3g">
+        I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+    </label>
+
+    <div class="d-flex justify-content-center">
+        <button type="submit" data-mdb-button-init
+                data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+            Login
+        </button>
+    </div>
+
+    <p class="text-center text-muted mt-5 mb-0">
+        Dont have an account? <a asp-action="SignUp"
+                                 class="fw-bold text-body"><u>Register here</u></a>
+    </p>
+
+</form>
