@@ -1,0 +1,39 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<a asp-action="AddProduct" asp-controller="Product" class="btn btn-success">Add Product</a>
+
+
+<form method="post">
+    <select name="choice">
+        <option>All</option>
+        <option>LTH</option>
+    </select>
+    <input type="submit" value="Filter" />
+</form>
+
+
+
+<br />
+<br />
+<div class="d-flex">
+    @foreach (var d in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" width="200" height="200" src="@d.Image" alt="Card image cap" />
+            <div class="card-body">
+                <h5 class="card-title">@d.Name</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Category : @d.Category</li>
+                <li class="list-group-item">Category : @d.Description</li>
+                <li class="list-group-item">Price : @d.Price</li>
+            </ul>
+            <div class="card-body">
+               <a asp-controller="Product" asp-route-id="@d.Id" asp-action="AddToCart" class="btn btn-info">Add To Cart</a>
+            </div>
+        </div>
+    }
+    </div>
